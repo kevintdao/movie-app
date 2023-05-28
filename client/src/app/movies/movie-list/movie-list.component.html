@@ -2,12 +2,12 @@
 <div class="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
   <div
     *ngFor="let movie of movies"
-    class="border rounded flex p-2 shadow-md justify-center"
+    class="border rounded flex p-2 shadow-md justify-center hover:shadow-lg hover:scale-[1.01]"
   >
-    <div class="flex flex-col">
+    <div class="flex flex-col" (click)="goToMovieDetails(movie.id)">
       <img
         [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
-        alt=""
+        [alt]="movie.title"
         class="h-72"
       />
       <span class="font-bold">{{ movie.title }}</span>
