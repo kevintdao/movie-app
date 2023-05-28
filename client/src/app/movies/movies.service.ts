@@ -19,7 +19,7 @@ export class MoviesService {
     );
   }
 
-  public getMovie(id: string): Observable<Movie> {
+  public getMovie(id: number): Observable<Movie> {
     return this.HttpClient.get<Movie>(
       `${this.apiString}/movie/${id}?${this.apiKey}`
     );

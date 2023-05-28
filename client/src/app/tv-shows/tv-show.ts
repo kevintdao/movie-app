@@ -17,6 +17,8 @@ export interface TvShow {
   origin_country: string[];
   runtime?: number;
   genres?: Genre[];
+  number_of_episodes?: number;
+  number_of_seasons?: number;
 }
 
 export interface Genre {
