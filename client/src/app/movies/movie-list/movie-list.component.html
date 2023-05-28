@@ -1,6 +1,17 @@
-<div>
-  <div *ngFor="let movie of movies">
-    <span class="font-bold">{{ movie.title }}</span>
-    <span>{{ movie.year }}</span>
+<h1 class="text-3xl font-bold mb-2">Movies</h1>
+<div class="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+  <div
+    *ngFor="let movie of movies"
+    class="border rounded flex p-2 shadow-md justify-center"
+  >
+    <div class="flex flex-col">
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt=""
+        class="h-72"
+      />
+      <span class="font-bold">{{ movie.title }}</span>
+      <span>{{ movie.release_date }}</span>
+    </div>
   </div>
 </div>

@@ -1,22 +1,24 @@
-<nav class="bg-gray-100 shadow-lg h-14 z-50">
-  <div
-    class="flex justify-between items-center max-w-[1240px] w-full h-full px-4 mx-auto"
-  >
-    <div className="text-2xl font-bold">
-      <a routerLink="/">Movie App</a>
-    </div>
+<header>
+  <nav class="bg-gray-100 shadow-lg h-14 z-50">
+    <div
+      class="flex justify-between items-center max-w-[1240px] w-full h-full px-4 mx-auto"
+    >
+      <div className="text-2xl font-bold">
+        <a routerLink="/">Movie App</a>
+      </div>
 
-    <div>
-      <ul class="space-x-6 flex">
-        <li *ngFor="let link of links">
-          <a
-            routerLink="{{ link.path }}"
-            routerLinkActive="text-blue-500"
-            class="text-gray-500 hover:text-blue-500"
-            >{{ link.label }}</a
-          >
-        </li>
-      </ul>
+      <div>
+        <ul class="space-x-6 flex">
+          <li *ngFor="let link of links">
+            <a
+              routerLink="{{ link.path }}"
+              routerLinkActive="text-blue-500"
+              class="text-gray-500 hover:text-blue-500"
+              >{{ link.label }}</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</header>
