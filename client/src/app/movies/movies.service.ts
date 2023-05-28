@@ -13,13 +13,13 @@ export class MoviesService {
 
   constructor(private HttpClient: HttpClient) {}
 
-  public getMovies(): Observable<MovieResponse> {
+  getMovies(): Observable<MovieResponse> {
     return this.HttpClient.get<MovieResponse>(
       `${this.apiString}/trending/movie/day?${this.apiKey}`
     );
   }
 
-  public getMovie(id: number): Observable<Movie> {
+  getMovie(id: number): Observable<Movie> {
     return this.HttpClient.get<Movie>(
       `${this.apiString}/movie/${id}?${this.apiKey}`
     );

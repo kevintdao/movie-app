@@ -1,29 +1,66 @@
 <app-back-button />
 
-<ng-container *ngIf="movie; then movieDetail; else noMovie"></ng-container>
+<ng-container
+  *ngIf="movie.isLoading && credit.isLoading; then loading; else movieDetail"
+></ng-container>
 
-<ng-template #noMovie>
-  <div>This movie does not exists!</div>
+<ng-template #loading>
+  <div>Loading...</div>
 </ng-template>
 
 <ng-template #movieDetail>
-  <h1 class="text-3xl font-bold mb-2">
-    {{ movie?.title }}
-  </h1>
   <div>
-    <img
-      [src]="'https://image.tmdb.org/t/p/w500' + movie?.poster_path"
-      alt="movie?.title"
-      class="w-1/4"
-    />
-    <div>
-      <span *ngFor="let genre of movie?.genres">
-        {{ genre.name }}
-      </span>
+    <image-backdrop [backdropPath]="movie.data?.backdrop_path ?? ''" />
+    <div
+      class="flex flex-col md:flex-row bg-transparent gap-4 px-4 mt-[-20rem]"
+    >
+      <!-- poster image -->
+      <div class="w-[50%] md:w-[30%] mx-auto">
+        <image-poster [posterPath]="movie.data?.poster_path ?? ''" />
+      </div>
+      <!-- poster image -->
+
+      <!-- movie details -->
+      <div class="text-white w-full md:w-[70%] space-y-4">
+        <h1 class="font-bold mb-2 text-4xl lg:text-6xl">
+          {{ movie.data?.title }}
+        </h1>
+        <h2 class="text-3xl lg:text-5xl">
+          {{ movie.data?.release_date?.slice(0, 4) }}
+        </h2>
+
+        <div>
+          <app-genre-list [genres]="movie.data?.genres ?? []" />
+        </div>
+
+        <div class="flex gap-2 items-center">
+          <rating [rating]="movie.data?.vote_average ?? 0" />
+          <p class="font-semibold">{{ movie.data?.runtime }} minutes</p>
+        </div>
+
+        <div class="tracking-normal">
+          <p>{{ movie.data?.overview }}</p>
+        </div>
+
+        <div>
+          <app-cast-list [casts]="credit.data?.cast ?? []" />
+        </div>
+      </div>
+      <!-- movie details -->
     </div>
-    <p>{{ movie?.release_date }}</p>
-    <p>{{ movie?.vote_average }}</p>
-    <p>{{ movie?.runtime }} minutes</p>
-    <p>{{ movie?.overview }}</p>
+
+    <div class="flex flex-col gap-10 px-4 mt-4">
+      <!-- videos -->
+      <video-swiper />
+      <!-- videos -->
+
+      <!-- backdrops -->
+      <image-swiper label="Backdrops" />
+      <!-- backdrops -->
+
+      <!-- posters -->
+      <image-swiper label="Posters" />
+      <!-- posters -->
+    </div>
   </div>
 </ng-template>

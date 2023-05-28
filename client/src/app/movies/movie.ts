@@ -1,3 +1,5 @@
+import { Genre } from '../shared/shared';
+
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -16,11 +18,6 @@ export interface Movie {
   vote_count: number;
   runtime?: number;
   genres?: Genre[];
-}
-
-export interface Genre {
-  id: number;
-  name: string;
 }
 
 export interface MovieResponse {

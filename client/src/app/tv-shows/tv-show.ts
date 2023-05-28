@@ -1,3 +1,5 @@
+import { Genre } from '../shared/shared';
+
 export interface TvShow {
   adult: boolean;
   backdrop_path: string;
@@ -19,11 +21,6 @@ export interface TvShow {
   genres?: Genre[];
   number_of_episodes?: number;
   number_of_seasons?: number;
-}
-
-export interface Genre {
-  id: number;
-  name: string;
 }
 
 export interface TvShowResponse {

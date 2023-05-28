@@ -13,13 +13,13 @@ export class TvShowsService {
 
   constructor(private HttpClient: HttpClient) {}
 
-  public getTvShows(): Observable<TvShowResponse> {
+  getTvShows(): Observable<TvShowResponse> {
     return this.HttpClient.get<TvShowResponse>(
       `${this.apiString}/trending/tv/day?${this.apiKey}`
     );
   }
 
-  public getTvShow(id: number): Observable<TvShow> {
+  getTvShow(id: number): Observable<TvShow> {
     return this.HttpClient.get<TvShow>(
       `${this.apiString}/tv/${id}?${this.apiKey}`
     );
