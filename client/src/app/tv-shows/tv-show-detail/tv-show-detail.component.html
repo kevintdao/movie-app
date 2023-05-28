@@ -1,21 +1,29 @@
 <app-back-button />
 
-<h1 class="text-3xl font-bold mb-2">
-  {{ tvShow?.name }}
-</h1>
-<div>
-  <img
-    [src]="'https://image.tmdb.org/t/p/w500' + tvShow?.poster_path"
-    alt="movie?.title"
-    class="w-1/4"
-  />
+<ng-container *ngIf="tvShow; then tvShowDetail; else noTvShow"></ng-container>
+
+<ng-template #noTvShow>
+  <div>This TV Show does not exists!</div>
+</ng-template>
+
+<ng-template #tvShowDetail>
+  <h1 class="text-3xl font-bold mb-2">
+    {{ tvShow?.name }}
+  </h1>
   <div>
-    <span *ngFor="let genre of tvShow?.genres">
-      {{ genre.name }}
-    </span>
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + tvShow?.poster_path"
+      alt="movie?.title"
+      class="w-1/4"
+    />
+    <div>
+      <span *ngFor="let genre of tvShow?.genres">
+        {{ genre.name }}
+      </span>
+    </div>
+    <p>{{ tvShow?.number_of_episodes }} Episode(s)</p>
+    <p>{{ tvShow?.number_of_seasons }} Season(s)</p>
+    <p>{{ tvShow?.vote_average }}</p>
+    <p>{{ tvShow?.overview }}</p>
   </div>
-  <p>{{ tvShow?.number_of_episodes }} Episode(s)</p>
-  <p>{{ tvShow?.number_of_seasons }} Season(s)</p>
-  <p>{{ tvShow?.vote_average }}</p>
-  <p>{{ tvShow?.overview }}</p>
-</div>
+</ng-template>

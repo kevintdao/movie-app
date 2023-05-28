@@ -1,21 +1,29 @@
 <app-back-button />
 
-<h1 class="text-3xl font-bold mb-2">
-  {{ movie?.title }}
-</h1>
-<div>
-  <img
-    [src]="'https://image.tmdb.org/t/p/w500' + movie?.poster_path"
-    alt="movie?.title"
-    class="w-1/4"
-  />
+<ng-container *ngIf="movie; then movieDetail; else noMovie"></ng-container>
+
+<ng-template #noMovie>
+  <div>This movie does not exists!</div>
+</ng-template>
+
+<ng-template #movieDetail>
+  <h1 class="text-3xl font-bold mb-2">
+    {{ movie?.title }}
+  </h1>
   <div>
-    <span *ngFor="let genre of movie?.genres">
-      {{ genre.name }}
-    </span>
+    <img
+      [src]="'https://image.tmdb.org/t/p/w500' + movie?.poster_path"
+      alt="movie?.title"
+      class="w-1/4"
+    />
+    <div>
+      <span *ngFor="let genre of movie?.genres">
+        {{ genre.name }}
+      </span>
+    </div>
+    <p>{{ movie?.release_date }}</p>
+    <p>{{ movie?.vote_average }}</p>
+    <p>{{ movie?.runtime }} minutes</p>
+    <p>{{ movie?.overview }}</p>
   </div>
-  <p>{{ movie?.release_date }}</p>
-  <p>{{ movie?.vote_average }}</p>
-  <p>{{ movie?.runtime }} minutes</p>
-  <p>{{ movie?.overview }}</p>
-</div>
+</ng-template>
