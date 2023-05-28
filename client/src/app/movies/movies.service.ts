@@ -9,12 +9,19 @@ import { Observable } from 'rxjs';
 })
 export class MoviesService {
   private apiString = 'https://api.themoviedb.org/3';
+  private apiKey = `api_key=${environment.api_key}`;
 
   constructor(private HttpClient: HttpClient) {}
 
   public getMovies(): Observable<MovieResponse> {
     return this.HttpClient.get<MovieResponse>(
-      `${this.apiString}/trending/movie/day?api_key=${environment.api_key}`
+      `${this.apiString}/trending/movie/day?${this.apiKey}`
+    );
+  }
+
+  public getMovie(id: string): Observable<Movie> {
+    return this.HttpClient.get<Movie>(
+      `${this.apiString}/movie/${id}?${this.apiKey}`
     );
   }
 }

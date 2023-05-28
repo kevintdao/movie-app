@@ -14,8 +14,14 @@ export interface Movie {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  runtime?: number;
+  genres?: Genre[];
 }
 
+export interface Genre {
+  id: number;
+  name: string;
+}
 export interface MovieResponse {
   page: number;
   results: Movie[];
