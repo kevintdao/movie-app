@@ -1,12 +1,14 @@
-<!-- <div
+<div
+  class="pt-[170%] w-full h-fit"
   [ngStyle]="{
-      background: 'url(https://image.tmdb.org/t/p/original' + posterPath + ')',
-      backgroundSize: '100% 100%',
-      backgroundPosition: 'center center',
       position: 'relative',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundColor: 'darkgrey',
+      backgroundImage: 'url(https://image.tmdb.org/t/p/original' + posterPath + ')',
     }"
 >
   <ng-content></ng-content>
-</div> -->
+</div>
 
-<img [src]="'https://image.tmdb.org/t/p/original' + posterPath" alt="" />
+<!-- <img [src]="'https://image.tmdb.org/t/p/original' + posterPath" alt="" /> -->

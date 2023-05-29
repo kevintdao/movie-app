@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home/home.component';
+import { HomeComponent } from './modules/home/home/home.component';
 
 const routes: Routes = [
   {
@@ -10,12 +10,12 @@ const routes: Routes = [
   {
     path: 'movies',
     loadChildren: () =>
-      import('./movies/movies.module').then((m) => m.MoviesModule),
+      import('./modules/movies/movies.module').then((m) => m.MoviesModule),
   },
   {
     path: 'tv-shows',
     loadChildren: () =>
-      import('./tv-shows/tv-shows.module').then((m) => m.TvShowsModule),
+      import('./modules/tv-shows/tv-shows.module').then((m) => m.TvShowsModule),
   },
 ];
 

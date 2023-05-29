@@ -1,0 +1,33 @@
+<h1 class="text-3xl font-bold mb-2">{{ title }}</h1>
+<div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+  <a
+    *ngFor="let item of items"
+    class="hover:shadow-lg hover:scale-[1.01] hover:cursor-pointer"
+    [routerLink]="[item.id]"
+  >
+    <div
+      class="pt-[160%] w-full h-full"
+      [ngStyle]="{
+        position: 'relative',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundColor: 'darkgrey',
+        backgroundImage: 'url(https://image.tmdb.org/t/p/original' + item.poster_path + ')',
+      }"
+    >
+      <div
+        class="absolute h-full w-full bottom-0 left-0 bg-gradient-to-t from-black to-transparent"
+      >
+        <div class="absolute bottom-0 left-0 p-4">
+          <rating [rating]="item.vote_average" />
+          <p class="font-bold tracking-tight">{{ item.title || item.name }}</p>
+          <p class="font-medium">
+            {{
+              item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4)
+            }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

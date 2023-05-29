@@ -18,8 +18,4 @@ export class TvShowListComponent implements OnInit {
       this.tvShows = tvShows.results;
     });
   }
-
-  public goToTvShowDetails(id: number): void {
-    this.router.navigate(['tv-shows', id]);
-  }
 }

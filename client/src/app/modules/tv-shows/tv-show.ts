@@ -1,4 +1,4 @@
-import { Genre } from '../shared/shared';
+import { Genre } from '../../shared/shared';
 
 export interface TvShow {
   adult: boolean;

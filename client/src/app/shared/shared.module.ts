@@ -12,6 +12,8 @@ import { VideoSwiperComponent } from './video-swiper/video-swiper.component';
 import { ImageSwiperComponent } from './image-swiper/image-swiper.component';
 import { SectionLabelComponent } from './section-label/section-label.component';
 import { RatingComponent } from './rating/rating.component';
+import { MediaGridComponent } from './media-grid/media-grid.component';
+import { MediaDetailComponent } from './media-detail/media-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { RatingComponent } from './rating/rating.component';
     ImageSwiperComponent,
     SectionLabelComponent,
     RatingComponent,
+    MediaGridComponent,
+    MediaDetailComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -37,6 +41,7 @@ import { RatingComponent } from './rating/rating.component';
     VideoSwiperComponent,
     ImageSwiperComponent,
     RatingComponent,
+    MediaGridComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

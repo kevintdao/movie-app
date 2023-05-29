@@ -1,5 +1,16 @@
-<div id="progress" class="bg-transparent">
-  <span id="progress-value" class="bg-gray-950 text-sm font-semibold">{{
-    rating.toFixed(1)
-  }}</span>
+<div
+  class="grid place-items-center text-sm font-semibold h-[45px] w-[45px] rounded-[50%] mt-1 mr-3"
+  [ngStyle]="{
+    background:
+      'conic-gradient(#dc2626 ' +
+      this.rating * 10 +
+      '%, rgba(255,255,255,0) ' +
+      this.rating * 10 +
+      '% )'
+  }"
+>
+  <span
+    class="bg-gray-950 grid place-items-center h-[calc(100%-6px)] w-[calc(100%-6px)] rounded-[50%]"
+    >{{ rating.toFixed(1) }}</span
+  >
 </div>
