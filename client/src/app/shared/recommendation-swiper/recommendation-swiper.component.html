@@ -1,0 +1,39 @@
+<div>
+  <section-label label="You might also like" />
+
+  <swiper-container appSwiperDirective [config]="config" class="w-full pb-12">
+    <swiper-slide *ngFor="let recommendation of recommendations">
+      <div
+        class="pt-[160%] h-full w-full"
+        [ngStyle]="{
+        background:
+          recommendation.poster_path ? 'url(https://image.tmdb.org/t/p/original' + recommendation.poster_path + ')' : 'darkgray',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }"
+      >
+        <div
+          class="absolute h-full w-full bottom-0 left-0 bg-gradient-to-t from-black to-transparent"
+        >
+          <div
+            class="absolute bottom-0 left-0 p-4 flex gap-2 w-full justify-between items-end"
+          >
+            <div>
+              <p class="font-bold tracking-tight mt-2">
+                {{ recommendation.title || recommendation.name }}
+              </p>
+              <p class="font-medium">
+                {{
+                  recommendation.release_date?.slice(0, 4) ||
+                    recommendation.first_air_date?.slice(0, 4)
+                }}
+              </p>
+            </div>
+
+            <rating [rating]="recommendation.vote_average" />
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</div>

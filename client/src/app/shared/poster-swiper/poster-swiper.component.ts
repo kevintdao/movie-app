@@ -1,10 +1,5 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  Component,
-  Input,
-  OnInit,
-} from '@angular/core';
-import { Cast } from '../shared';
+import { Component, Input } from '@angular/core';
+import { Image } from '../shared';
 import {
   A11y,
   Mousewheel,
@@ -14,19 +9,22 @@ import {
 } from 'swiper';
 
 @Component({
-  selector: 'cast-list',
-  templateUrl: './cast-list.component.html',
-  styleUrls: ['./cast-list.component.css'],
+  selector: 'poster-swiper',
+  templateUrl: './poster-swiper.component.html',
+  styleUrls: ['./poster-swiper.component.css'],
 })
-export class CastListComponent implements OnInit {
-  @Input() casts: Cast[] = [];
+export class PosterSwiperComponent {
+  @Input() images: Image[] = [];
+  @Input() label: string = 'Posters';
 
   config: SwiperOptions = {
     modules: [Navigation, Pagination, A11y, Mousewheel],
-    grabCursor: true,
     slidesPerView: 'auto',
     spaceBetween: 10,
     centeredSlides: false,
+    pagination: {
+      clickable: true,
+    },
     breakpoints: {
       0: {
         slidesPerView: 2,
@@ -37,14 +35,7 @@ export class CastListComponent implements OnInit {
       768: {
         slidesPerView: 4,
       },
-      1024: {
-        slidesPerView: 5,
-      },
     },
     navigation: false,
   };
-
-  constructor() {}
-
-  ngOnInit(): void {}
 }

@@ -1,11 +1,19 @@
 <app-back-button />
 
 <ng-container
-  *ngIf="movie.isLoading && credit.isLoading; then loading; else movieDetail"
+  *ngIf="
+    movie.isLoading ||
+      credit.isLoading ||
+      images.isLoading ||
+      videos.isLoading ||
+      recommendations.isLoading;
+    then loading;
+    else movieDetail
+  "
 ></ng-container>
 
 <ng-template #loading>
-  <div>Loading...</div>
+  <loading />
 </ng-template>
 
 <ng-template #movieDetail>
@@ -29,38 +37,60 @@
           {{ movie.data?.release_date?.slice(0, 4) }}
         </h2>
 
+        <!-- genres -->
         <div>
-          <app-genre-list [genres]="movie.data?.genres ?? []" />
+          <genre-list [genres]="movie.data?.genres ?? []" />
         </div>
+        <!-- genres -->
 
+        <!-- rating and runtime -->
         <div class="flex gap-2 items-center">
           <rating [rating]="movie.data?.vote_average ?? 0" />
           <p class="font-semibold">{{ movie.data?.runtime }} minutes</p>
         </div>
+        <!-- rating and runtime -->
 
+        <!-- description -->
         <div class="tracking-normal">
           <p>{{ movie.data?.overview }}</p>
         </div>
+        <!-- description -->
 
-        <div>
-          <app-cast-list [casts]="credit.data?.cast ?? []" />
+        <!-- favorite button -->
+        <div class="py-4">
+          <favorite-button />
         </div>
+        <!-- favorite button -->
       </div>
       <!-- movie details -->
     </div>
 
     <div class="flex flex-col gap-10 px-4 mt-4">
+      <!-- cast lists -->
+      <cast-list [casts]="credit.data?.cast ?? []" />
+      <!-- cast lists -->
+
       <!-- videos -->
-      <video-swiper />
+      <video-swiper [videos]="videos.data?.results ?? []" />
       <!-- videos -->
 
       <!-- backdrops -->
-      <image-swiper label="Backdrops" />
+      <backdrop-swiper [images]="images.data?.backdrops ?? []" />
       <!-- backdrops -->
 
       <!-- posters -->
-      <image-swiper label="Posters" />
+      <poster-swiper [images]="images.data?.posters ?? []" />
       <!-- posters -->
+
+      <!-- reviews -->
+      <review-list />
+      <!-- reviews -->
+
+      <!-- recommendations -->
+      <recommendation-swiper
+        [recommendations]="recommendations.data?.results ?? []"
+      />
+      <!-- recommendations -->
     </div>
   </div>
 </ng-template>

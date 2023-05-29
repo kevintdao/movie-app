@@ -1,3 +1,13 @@
 <div>
   <section-label [label]="label" />
+
+  <swiper-container appSwiperDirective [config]="config" class="w-full pb-12">
+    <swiper-slide *ngFor="let video of videos.slice(0, 10)">
+      <iframe
+        [src]="'https://www.youtube.com/embed/vBwj0QpKbSM?controls=0'"
+        width="100%"
+        [title]="video.id"
+      ></iframe>
+    </swiper-slide>
+  </swiper-container>
 </div>

@@ -1,12 +1,8 @@
 <div>
   <section-label label="Cast" />
 
-  <swiper-container
-    appSwiperDirective
-    [config]="config"
-    class="w-full cursor-grab"
-  >
-    <swiper-slide *ngFor="let cast of casts" class="h-44">
+  <swiper-container appSwiperDirective [config]="config" class="w-full">
+    <swiper-slide *ngFor="let cast of casts" class="h-52">
       <div
         class="h-full w-full"
         [ngStyle]="{
@@ -16,8 +12,11 @@
           backgroundPosition: 'center center',
         }"
       >
-        <div class="bg-black bg-opacity-60 absolute bottom-0 w-full h-max p-2">
-          <span>{{ cast.name }}</span>
+        <div
+          class="bg-black bg-opacity-60 w-full absolute bottom-0 h-max p-2 tracking-tighter"
+        >
+          <p class="font-medium">{{ cast.name }}</p>
+          <p class="text-sm text-gray-100">{{ cast.character }}</p>
         </div>
       </div>
     </swiper-slide>

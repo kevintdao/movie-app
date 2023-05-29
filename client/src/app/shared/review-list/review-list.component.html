@@ -1,0 +1,7 @@
+<section-label [label]="'Reviews (' + reviews.length + ')'" />
+
+<div *ngFor="let review of reviews" class="py-4">
+  <p>{{ review.name }}</p>
+  <p>{{ review.date }}</p>
+  <p>{{ review.content }}</p>
+</div>

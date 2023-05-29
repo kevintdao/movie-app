@@ -18,14 +18,22 @@
       <div
         class="absolute h-full w-full bottom-0 left-0 bg-gradient-to-t from-black to-transparent"
       >
-        <div class="absolute bottom-0 left-0 p-4">
+        <div
+          class="absolute bottom-0 left-0 p-4 flex gap-2 w-full justify-between items-end"
+        >
+          <div>
+            <p class="font-bold tracking-tight mt-2">
+              {{ item.title || item.name }}
+            </p>
+            <p class="font-medium">
+              {{
+                item.release_date?.slice(0, 4) ||
+                  item.first_air_date?.slice(0, 4)
+              }}
+            </p>
+          </div>
+
           <rating [rating]="item.vote_average" />
-          <p class="font-bold tracking-tight">{{ item.title || item.name }}</p>
-          <p class="font-medium">
-            {{
-              item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4)
-            }}
-          </p>
         </div>
       </div>
     </div>

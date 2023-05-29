@@ -17,10 +17,10 @@ export interface TvShow {
   vote_average: number;
   vote_count: number;
   origin_country: string[];
-  runtime?: number;
   genres?: Genre[];
   number_of_episodes?: number;
   number_of_seasons?: number;
+  episode_run_time?: number;
 }
 
 export interface TvShowResponse {

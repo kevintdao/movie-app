@@ -1,29 +1,91 @@
 <app-back-button />
 
-<ng-container *ngIf="tvShow; then tvShowDetail; else noTvShow"></ng-container>
+<ng-container
+  *ngIf="
+    tvShow.isLoading || credit.isLoading || images.isLoading;
+    then loading;
+    else movieDetail
+  "
+></ng-container>
 
-<ng-template #noTvShow>
-  <div>This TV Show does not exists!</div>
+<ng-template #loading>
+  <loading />
 </ng-template>
 
-<ng-template #tvShowDetail>
-  <h1 class="text-3xl font-bold mb-2">
-    {{ tvShow?.name }}
-  </h1>
+<ng-template #movieDetail>
   <div>
-    <img
-      [src]="'https://image.tmdb.org/t/p/w500' + tvShow?.poster_path"
-      alt="movie?.title"
-      class="w-1/4"
-    />
-    <div>
-      <span *ngFor="let genre of tvShow?.genres">
-        {{ genre.name }}
-      </span>
+    <image-backdrop [backdropPath]="tvShow.data?.backdrop_path ?? ''" />
+    <div
+      class="flex flex-col md:flex-row bg-transparent gap-4 px-4 mt-[-20rem]"
+    >
+      <!-- poster image -->
+      <div class="w-[50%] md:w-[30%] mx-auto">
+        <image-poster [posterPath]="tvShow.data?.poster_path ?? ''" />
+      </div>
+      <!-- poster image -->
+
+      <!-- tv show details -->
+      <div class="text-white w-full md:w-[70%] space-y-4">
+        <h1 class="font-bold mb-2 text-4xl lg:text-6xl">
+          {{ tvShow.data?.name }}
+        </h1>
+        <h2 class="text-3xl lg:text-5xl">
+          {{ tvShow.data?.first_air_date?.slice(0, 4) }}
+        </h2>
+
+        <!-- genres -->
+        <div>
+          <genre-list [genres]="tvShow.data?.genres ?? []" />
+        </div>
+        <!-- genres -->
+
+        <!-- rating -->
+        <div class="flex gap-2 items-center">
+          <rating [rating]="tvShow.data?.vote_average ?? 0" />
+        </div>
+        <!-- rating -->
+
+        <!-- description -->
+        <div class="tracking-normal">
+          <p>{{ tvShow.data?.overview }}</p>
+        </div>
+        <!-- description -->
+
+        <!-- favorite button -->
+        <div class="py-4">
+          <favorite-button />
+        </div>
+        <!-- favorite button -->
+      </div>
+      <!-- tv show details -->
     </div>
-    <p>{{ tvShow?.number_of_episodes }} Episode(s)</p>
-    <p>{{ tvShow?.number_of_seasons }} Season(s)</p>
-    <p>{{ tvShow?.vote_average }}</p>
-    <p>{{ tvShow?.overview }}</p>
+
+    <div class="flex flex-col gap-10 px-4 mt-4">
+      <!-- cast lists -->
+      <cast-list [casts]="credit.data?.cast ?? []" />
+      <!-- cast lists -->
+
+      <!-- videos -->
+      <video-swiper [videos]="videos.data?.results ?? []" />
+      <!-- videos -->
+
+      <!-- backdrops -->
+      <backdrop-swiper [images]="images.data?.backdrops ?? []" />
+      <!-- backdrops -->
+
+      <!-- posters -->
+      <poster-swiper [images]="images.data?.posters ?? []" />
+      <!-- posters -->
+
+      <!-- reviews -->
+      <review-list />
+      <!-- reviews -->
+
+      <!-- recommendations -->
+      <recommendation-swiper
+        [recommendations]="recommendations.data?.results ?? []"
+      />
+      <!-- recommendations -->
+    </div>
   </div>
 </ng-template>

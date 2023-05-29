@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   links = [
-    { path: '/', label: 'Home' },
     { path: '/movies', label: 'Movies' },
     { path: '/tv-shows', label: 'TV Shows' },
   ];

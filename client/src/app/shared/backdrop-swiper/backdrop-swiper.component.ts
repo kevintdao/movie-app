@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Video } from '../shared';
+import { Image } from '../shared';
 import {
   A11y,
   Mousewheel,
@@ -9,13 +9,13 @@ import {
 } from 'swiper';
 
 @Component({
-  selector: 'video-swiper',
-  templateUrl: './video-swiper.component.html',
-  styleUrls: ['./video-swiper.component.css'],
+  selector: 'backdrop-swiper',
+  templateUrl: './backdrop-swiper.component.html',
+  styleUrls: ['./backdrop-swiper.component.css'],
 })
-export class VideoSwiperComponent {
-  @Input() videos: Video[] = [];
-  @Input() label: string = 'Videos';
+export class BackdropSwiperComponent {
+  @Input() images: Image[] = [];
+  @Input() label: string = 'Backdrops';
 
   config: SwiperOptions = {
     modules: [Navigation, Pagination, A11y, Mousewheel],

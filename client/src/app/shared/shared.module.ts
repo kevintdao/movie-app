@@ -9,11 +9,16 @@ import { GenreListComponent } from './genre-list/genre-list.component';
 import { ImageProfileComponent } from './image-profile/image-profile.component';
 import { SwiperDirectiveDirective } from './swiper.directive';
 import { VideoSwiperComponent } from './video-swiper/video-swiper.component';
-import { ImageSwiperComponent } from './image-swiper/image-swiper.component';
 import { SectionLabelComponent } from './section-label/section-label.component';
 import { RatingComponent } from './rating/rating.component';
 import { MediaGridComponent } from './media-grid/media-grid.component';
 import { MediaDetailComponent } from './media-detail/media-detail.component';
+import { PosterSwiperComponent } from './poster-swiper/poster-swiper.component';
+import { BackdropSwiperComponent } from './backdrop-swiper/backdrop-swiper.component';
+import { RecommendationSwiperComponent } from './recommendation-swiper/recommendation-swiper.component';
+import { LoadingComponent } from './loading/loading.component';
+import { ReviewListComponent } from './review-list/review-list.component';
+import { FavoriteButtonComponent } from './favorite-button/favorite-button.component';
 
 @NgModule({
   declarations: [
@@ -25,11 +30,16 @@ import { MediaDetailComponent } from './media-detail/media-detail.component';
     ImageProfileComponent,
     SwiperDirectiveDirective,
     VideoSwiperComponent,
-    ImageSwiperComponent,
     SectionLabelComponent,
     RatingComponent,
     MediaGridComponent,
     MediaDetailComponent,
+    PosterSwiperComponent,
+    BackdropSwiperComponent,
+    RecommendationSwiperComponent,
+    LoadingComponent,
+    ReviewListComponent,
+    FavoriteButtonComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -39,9 +49,14 @@ import { MediaDetailComponent } from './media-detail/media-detail.component';
     GenreListComponent,
     CastListComponent,
     VideoSwiperComponent,
-    ImageSwiperComponent,
     RatingComponent,
     MediaGridComponent,
+    PosterSwiperComponent,
+    BackdropSwiperComponent,
+    RecommendationSwiperComponent,
+    LoadingComponent,
+    ReviewListComponent,
+    FavoriteButtonComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

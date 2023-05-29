@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Movie, MovieResponse } from './movie';
 import { Observable } from 'rxjs';
+import { ImageResponse } from 'src/app/shared/shared';
 
 @Injectable({
   providedIn: 'root',
