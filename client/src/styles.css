@@ -18,7 +18,7 @@
 
   /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-stone-900;
+    @apply bg-stone-800;
   }
 
   /* Handle */
@@ -32,7 +32,7 @@
   }
 
   body {
-    @apply bg-stone-950 text-white tracking-wide min-h-screen;
+    @apply bg-stone-950 text-white tracking-wide min-h-[calc(100vh-3.5rem)];
   }
 
   .image-header::before {

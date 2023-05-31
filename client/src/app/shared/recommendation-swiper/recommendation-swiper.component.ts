@@ -8,6 +8,8 @@ import {
   Pagination,
   SwiperOptions,
 } from 'swiper';
+import { Media } from '../shared';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'recommendation-swiper',
@@ -16,6 +18,9 @@ import {
 })
 export class RecommendationSwiperComponent {
   @Input() recommendations: any[] = [];
+  @Input() mediaType: 'movies' | 'tv-shows' = 'movies';
+
+  constructor(private router: Router) {}
 
   config: SwiperOptions = {
     modules: [Navigation, Pagination, A11y, Mousewheel],
@@ -38,4 +43,10 @@ export class RecommendationSwiperComponent {
     },
     navigation: false,
   };
+
+  navigateToMedia(id: number) {
+    this.router
+      .navigate([`/${this.mediaType}/${id}`])
+      .then(() => window.location.reload());
+  }
 }

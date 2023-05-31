@@ -12,7 +12,7 @@ export class ReviewListComponent {
       id: 1,
       name: 'John Doe',
       rating: 4,
-      date: '2020-01-01',
+      date: '01-01-2020 12:00:00',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
     },
@@ -20,7 +20,7 @@ export class ReviewListComponent {
       id: 2,
       name: 'Bob Smith',
       rating: 4,
-      date: '2020-01-01',
+      date: '01-01-2020 12:00:00',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
     },
@@ -28,7 +28,7 @@ export class ReviewListComponent {
       id: 3,
       name: 'John Doe',
       rating: 4,
-      date: '2020-01-01',
+      date: '01-01-2020 12:00:00',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.',
     },

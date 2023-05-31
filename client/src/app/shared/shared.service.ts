@@ -45,4 +45,8 @@ export class SharedService {
       `${this.apiString}/${media}/${id}/recommendations?${this.apiKey}`
     );
   }
+
+  classNames(...classes: string[]): string {
+    return classes.filter(Boolean).join(' ');
+  }
 }

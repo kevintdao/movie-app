@@ -1,28 +1,31 @@
-<header>
-  <nav class="bg-stone-900 shadow-lg h-14 z-[1000]">
-    <div
-      class="flex justify-between items-center max-w-[1240px] w-full h-full px-4 mx-auto"
-    >
-      <div class="flex gap-6 items-center">
-        <div class="text-2xl font-bold tracking-tighter">
-          <a routerLink="/">Movie<span class="text-red-600">App</span></a>
-        </div>
-
-        <ul class="space-x-6 flex font-semibold">
-          <li *ngFor="let link of links">
-            <a
-              routerLink="{{ link.path }}"
-              routerLinkActive="text-red-500"
-              class="text-white hover:text-red-500"
-              >{{ link.label }}</a
-            >
-          </li>
-        </ul>
+<header
+  class="fixed top-0 w-full h-14 z-[1000]"
+  [ngClass]="{
+    'bg-stone-900 shadow-md': shadow,
+  }"
+>
+  <nav
+    class="flex justify-between items-center max-w-[1240px] w-full h-full px-4 mx-auto"
+  >
+    <div class="flex gap-6 items-center">
+      <div class="text-2xl font-bold tracking-tighter">
+        <a routerLink="/">Movie<span class="text-red-600">App</span></a>
       </div>
 
-      <div class="font-semibold">
-        <button class="normal-case">Sign In</button>
-      </div>
+      <ul class="space-x-6 flex font-semibold uppercase">
+        <li *ngFor="let link of links">
+          <a
+            routerLink="{{ link.path }}"
+            routerLinkActive="text-red-500"
+            class="text-white hover:text-red-500"
+            >{{ link.label }}</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="font-semibold">
+      <button>Sign In</button>
     </div>
   </nav>
 </header>

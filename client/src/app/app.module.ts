@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from './modules/home/home.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     CoreModule,
     SharedModule,
+    HomeModule,
     HttpClientModule,
   ],
   providers: [],

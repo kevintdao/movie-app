@@ -49,6 +49,7 @@ import { FavoriteButtonComponent } from './favorite-button/favorite-button.compo
     GenreListComponent,
     CastListComponent,
     VideoSwiperComponent,
+    SectionLabelComponent,
     RatingComponent,
     MediaGridComponent,
     PosterSwiperComponent,

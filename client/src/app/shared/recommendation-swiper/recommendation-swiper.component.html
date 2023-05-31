@@ -4,13 +4,14 @@
   <swiper-container appSwiperDirective [config]="config" class="w-full pb-12">
     <swiper-slide *ngFor="let recommendation of recommendations">
       <div
-        class="pt-[160%] h-full w-full"
+        (click)="navigateToMedia(recommendation.id)"
+        class="pt-[160%] h-full w-full cursor-pointer"
         [ngStyle]="{
-        background:
-          recommendation.poster_path ? 'url(https://image.tmdb.org/t/p/original' + recommendation.poster_path + ')' : 'darkgray',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }"
+          background:
+            recommendation.poster_path ? 'url(https://image.tmdb.org/t/p/original' + recommendation.poster_path + ')' : 'darkgray',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }"
       >
         <div
           class="absolute h-full w-full bottom-0 left-0 bg-gradient-to-t from-black to-transparent"
