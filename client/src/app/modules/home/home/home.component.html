@@ -1,11 +1,35 @@
 <div class="max-w-[1240px] p-4 mt-14 mx-auto">
-  <div class="space-y-4">
-    <section-label label="Popular Movies" />
+  <div class="space-y-6">
+    <!-- popular movies -->
+    <media-swiper
+      label="Popular Movies"
+      [items]="popularMovies.data?.results ?? []"
+      type="movies"
+    />
+    <!-- popular movies -->
 
-    <section-label label="Popular TV Shows" />
+    <!-- popular tv shows -->
+    <media-swiper
+      label="Popular TV Shows"
+      [items]="popularTvShows.data?.results ?? []"
+      type="tv-shows"
+    />
+    <!-- popular tv shows -->
 
-    <section-label label="Top Rated Movies" />
+    <!-- top rated movies -->
+    <media-swiper
+      label="Top Rated Movies"
+      [items]="topRatedMovies.data?.results ?? []"
+      type="movies"
+    />
+    <!-- top rated movies -->
 
-    <section-label label="Top Rated TV Shows" />
+    <!-- top rated tv shows -->
+    <media-swiper
+      label="Top Rated TV Shows"
+      [items]="topRatedTvShows.data?.results ?? []"
+      type="tv-shows"
+    />
+    <!-- top rated tv shows -->
   </div>
 </div>

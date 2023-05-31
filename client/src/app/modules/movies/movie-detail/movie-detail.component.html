@@ -11,7 +11,6 @@
 ></ng-container>
 
 <ng-template #loading>
-  <app-back-button />
   <loading />
 </ng-template>
 
@@ -88,8 +87,8 @@
       <!-- reviews -->
 
       <!-- recommendations -->
-      <recommendation-swiper
-        [recommendations]="recommendations.data?.results ?? []"
+      <media-swiper
+        [items]="recommendations.data?.results ?? []"
         mediaType="movies"
       />
       <!-- recommendations -->

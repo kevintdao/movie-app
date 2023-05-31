@@ -1,5 +1,5 @@
 <header
-  class="fixed top-0 w-full h-14 z-[1000]"
+  class="fixed top-0 w-full h-16 z-[1000]"
   [ngClass]="{
     'bg-stone-900 shadow-md': shadow,
   }"
@@ -12,19 +12,21 @@
         <a routerLink="/">Movie<span class="text-red-600">App</span></a>
       </div>
 
-      <ul class="space-x-6 flex font-semibold uppercase">
+      <ul class="space-x-4 flex font-semibold uppercase text-sm">
         <li *ngFor="let link of links">
           <a
+            class="text-white hover:text-red-500 px-2 py-2"
             routerLink="{{ link.path }}"
-            routerLinkActive="text-red-500"
-            class="text-white hover:text-red-500"
+            routerLinkActive="bg-red-600 rounded hover:bg-red-700 hover:text-white"
             >{{ link.label }}</a
           >
         </li>
       </ul>
     </div>
 
-    <div class="font-semibold">
+    <div
+      class="font-semibold bg-red-600 rounded px-4 py-2 text-sm hover:bg-red-700"
+    >
       <button>Sign In</button>
     </div>
   </nav>

@@ -15,10 +15,10 @@ import { MediaGridComponent } from './media-grid/media-grid.component';
 import { MediaDetailComponent } from './media-detail/media-detail.component';
 import { PosterSwiperComponent } from './poster-swiper/poster-swiper.component';
 import { BackdropSwiperComponent } from './backdrop-swiper/backdrop-swiper.component';
-import { RecommendationSwiperComponent } from './recommendation-swiper/recommendation-swiper.component';
 import { LoadingComponent } from './loading/loading.component';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { FavoriteButtonComponent } from './favorite-button/favorite-button.component';
+import { MediaSwiperComponent } from './media-swiper/media-swiper.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +32,11 @@ import { FavoriteButtonComponent } from './favorite-button/favorite-button.compo
     VideoSwiperComponent,
     SectionLabelComponent,
     RatingComponent,
+    MediaSwiperComponent,
     MediaGridComponent,
     MediaDetailComponent,
     PosterSwiperComponent,
     BackdropSwiperComponent,
-    RecommendationSwiperComponent,
     LoadingComponent,
     ReviewListComponent,
     FavoriteButtonComponent,
@@ -51,10 +51,10 @@ import { FavoriteButtonComponent } from './favorite-button/favorite-button.compo
     VideoSwiperComponent,
     SectionLabelComponent,
     RatingComponent,
+    MediaSwiperComponent,
     MediaGridComponent,
     PosterSwiperComponent,
     BackdropSwiperComponent,
-    RecommendationSwiperComponent,
     LoadingComponent,
     ReviewListComponent,
     FavoriteButtonComponent,

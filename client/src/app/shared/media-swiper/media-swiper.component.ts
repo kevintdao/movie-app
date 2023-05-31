@@ -8,16 +8,16 @@ import {
   Pagination,
   SwiperOptions,
 } from 'swiper';
-import { Media } from '../shared';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'recommendation-swiper',
-  templateUrl: './recommendation-swiper.component.html',
-  styleUrls: ['./recommendation-swiper.component.css'],
+  selector: 'media-swiper',
+  templateUrl: './media-swiper.component.html',
+  styleUrls: ['./media-swiper.component.css'],
 })
-export class RecommendationSwiperComponent {
-  @Input() recommendations: any[] = [];
+export class MediaSwiperComponent {
+  @Input() label: string = 'You might also like';
+  @Input() items: any[] = [];
   @Input() mediaType: 'movies' | 'tv-shows' = 'movies';
 
   constructor(private router: Router) {}

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { TvShow, TvShowResponse } from './tv-show';
-import { ImageResponse } from 'src/app/shared/shared';
+import { ImageResponse, OrderBy } from 'src/app/shared/shared';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +17,12 @@ export class TvShowsService {
   getTvShows(): Observable<TvShowResponse> {
     return this.HttpClient.get<TvShowResponse>(
       `${this.apiString}/trending/tv/day?${this.apiKey}`
+    );
+  }
+
+  getTvShowLists(orderBy: OrderBy): Observable<TvShowResponse> {
+    return this.HttpClient.get<TvShowResponse>(
+      `${this.apiString}/tv/${orderBy}?language=en-US&${this.apiKey}`
     );
   }
 

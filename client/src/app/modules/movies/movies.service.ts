@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Movie, MovieResponse } from './movie';
 import { Observable } from 'rxjs';
-import { ImageResponse } from 'src/app/shared/shared';
+import { OrderBy } from 'src/app/shared/shared';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +17,12 @@ export class MoviesService {
   getMovies(): Observable<MovieResponse> {
     return this.HttpClient.get<MovieResponse>(
       `${this.apiString}/trending/movie/day?${this.apiKey}`
+    );
+  }
+
+  getMovieLists(orderBy: OrderBy): Observable<MovieResponse> {
+    return this.HttpClient.get<MovieResponse>(
+      `${this.apiString}/movie/${orderBy}?language=en-US&${this.apiKey}`
     );
   }
 

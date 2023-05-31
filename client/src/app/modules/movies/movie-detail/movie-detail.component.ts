@@ -30,7 +30,8 @@ export class MovieDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const routeParams = this.route.snapshot.params;
+    const id = Number(routeParams['id']);
 
     // if no id, then no movie
     if (!id) return;

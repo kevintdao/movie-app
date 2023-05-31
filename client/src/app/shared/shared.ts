@@ -87,3 +87,5 @@ export interface Video {
   published_at: string;
   id: string;
 }
+
+export type OrderBy = 'popular' | 'top_rated' | 'upcoming' | 'now_playing';
