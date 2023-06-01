@@ -17,8 +17,6 @@ export class TrendingSwiperComponent {
   @Input() medias: any[] = [];
 
   config: SwiperOptions = {
-    modules: [Navigation, Pagination, A11y, Mousewheel, Autoplay],
-    grabCursor: true,
     loop: true,
     autoplay: {
       delay: 1000,

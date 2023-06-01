@@ -1,7 +1,12 @@
 <!-- swiper with gradient bottom -->
 <swiper-container
-  appSwiperDirective
-  [config]="config"
+  loop="true"
+  [auto-play]="{
+    delay: 5000,
+    disableOnInteraction: false,
+  }"
+  navigation="true"
+  pagination="true"
   class="relative swiper-container"
 >
   <swiper-slide *ngFor="let media of medias">
@@ -22,9 +27,11 @@
         <div
           class="flex items-center relative w-full h-full sm:w-[70%] md:w-[40%]"
         >
-          <div class="space-y-2">
+          <div class="space-y-4">
             <!-- title -->
-            <h1 class="font-bold mb-2 text-4xl lg:text-6xl line-clamp-2">
+            <h1
+              class="font-bold text-4xl pb-1 lg:pb-3 lg:text-6xl line-clamp-2"
+            >
               {{ media.title || media.name }}
             </h1>
             <!-- title -->

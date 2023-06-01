@@ -5,7 +5,7 @@ import { SwiperOptions } from 'swiper';
   selector: '[appSwiperDirective]',
 })
 export class SwiperDirectiveDirective implements AfterViewInit {
-  swiperElement: HTMLElement;
+  private readonly swiperElement: HTMLElement;
 
   @Input('config')
   config?: SwiperOptions;
@@ -16,5 +16,8 @@ export class SwiperDirectiveDirective implements AfterViewInit {
 
   ngAfterViewInit() {
     Object.assign(this.el.nativeElement, this.config);
+
+    // @ts-ignore
+    this.el.nativeElement.initialize();
   }
 }
