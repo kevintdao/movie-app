@@ -6,7 +6,7 @@
     <a
       *ngFor="let item of items"
       class="hover:shadow-lg hover:scale-[1.01] hover:cursor-pointer"
-      [routerLink]="[item.id]"
+      routerLink="{{ item.id }}"
     >
       <div
         class="pt-[160%] w-full h-full"

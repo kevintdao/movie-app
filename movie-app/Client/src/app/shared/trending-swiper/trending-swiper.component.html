@@ -1,12 +1,7 @@
 <!-- swiper with gradient bottom -->
 <swiper-container
-  loop="true"
-  [auto-play]="{
-    delay: 5000,
-    disableOnInteraction: false,
-  }"
-  navigation="true"
-  pagination="true"
+  appSwiperDirective
+  [config]="config"
   class="relative swiper-container"
 >
   <swiper-slide *ngFor="let media of medias">
@@ -28,22 +23,24 @@
           class="flex items-center relative w-full h-full sm:w-[70%] md:w-[40%]"
         >
           <div class="space-y-4">
-            <!-- title -->
-            <h1
-              class="font-bold text-4xl pb-1 lg:pb-3 lg:text-6xl line-clamp-2"
-            >
-              {{ media.title || media.name }}
-            </h1>
-            <!-- title -->
+            <div class="space-y-1">
+              <!-- title -->
+              <h1
+                class="font-bold text-4xl pb-1 lg:pb-3 lg:text-6xl line-clamp-2"
+              >
+                {{ media.title || media.name }}
+              </h1>
+              <!-- title -->
 
-            <!-- release/air date -->
-            <h2 class="text-3xl lg:text-5xl">
-              {{
-                media.release_date?.slice(0, 4) ||
-                  media.first_air_date?.slice(0, 4)
-              }}
-            </h2>
-            <!-- release/air date -->
+              <!-- release/air date -->
+              <h2 class="text-2xl lg:text-4xl">
+                {{
+                  media.release_date?.slice(0, 4) ||
+                    media.first_air_date?.slice(0, 4)
+                }}
+              </h2>
+              <!-- release/air date -->
+            </div>
 
             <!-- genres -->
             <div>
@@ -52,8 +49,20 @@
             <!-- genres -->
 
             <!-- rating and runtime -->
-            <div class="flex gap-2 items-center">
+            <div class="flex gap-4 items-center">
               <rating [rating]="media.vote_average ?? 0" />
+              <genre-list
+                [genres]="[
+                  {
+                    id: 1,
+                    name: 'Action'
+                  },
+                  {
+                    id: 1,
+                    name: 'Action'
+                  }
+                ]"
+              />
             </div>
             <!-- rating and runtime -->
 
@@ -62,6 +71,29 @@
               <p>{{ media.overview }}</p>
             </div>
             <!-- description -->
+
+            <!-- view movie button -->
+            <button
+              class="inline-flex gap-2 font-semibold bg-red-600 rounded px-4 py-2 text-sm hover:bg-red-700"
+              routerLink="{{
+                media.media_type === 'movie' ? 'movies' : 'tv-shows'
+              }}/{{ media.id }}"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span class="uppercase">View Movie</span>
+            </button>
+            <!-- view movie button -->
           </div>
         </div>
       </div>

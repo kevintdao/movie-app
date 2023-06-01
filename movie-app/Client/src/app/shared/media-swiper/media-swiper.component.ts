@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { Movie } from 'src/app/modules/movies/movie';
-import { TvShow } from 'src/app/modules/tv-shows/tv-show';
 import {
   A11y,
   Mousewheel,
@@ -45,8 +43,6 @@ export class MediaSwiperComponent {
   };
 
   navigateToMedia(id: number) {
-    this.router
-      .navigate([`/${this.mediaType}/${id}`])
-      .then(() => window.location.reload());
+    this.router.navigate([`/${this.mediaType}/${id}`]);
   }
 }

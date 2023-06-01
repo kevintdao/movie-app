@@ -1,7 +1,12 @@
 <div>
   <section-label label="Cast" />
 
-  <swiper-container appSwiperDirective [config]="config" class="w-full">
+  <swiper-container
+    init="false"
+    appSwiperDirective
+    [config]="config"
+    class="w-full"
+  >
     <swiper-slide *ngFor="let cast of casts" class="h-52">
       <div
         class="h-full w-full"
