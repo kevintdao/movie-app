@@ -19,6 +19,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { ReviewListComponent } from './review-list/review-list.component';
 import { FavoriteButtonComponent } from './favorite-button/favorite-button.component';
 import { MediaSwiperComponent } from './media-swiper/media-swiper.component';
+import { TrendingSwiperComponent } from './trending-swiper/trending-swiper.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { MediaSwiperComponent } from './media-swiper/media-swiper.component';
     LoadingComponent,
     ReviewListComponent,
     FavoriteButtonComponent,
+    TrendingSwiperComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -58,6 +60,7 @@ import { MediaSwiperComponent } from './media-swiper/media-swiper.component';
     LoadingComponent,
     ReviewListComponent,
     FavoriteButtonComponent,
+    TrendingSwiperComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

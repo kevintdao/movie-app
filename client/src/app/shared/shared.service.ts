@@ -46,6 +46,12 @@ export class SharedService {
     );
   }
 
+  getTrending(): Observable<any> {
+    return this.HttpClient.get<any>(
+      `${this.apiString}/trending/all/day?${this.apiKey}`
+    );
+  }
+
   classNames(...classes: string[]): string {
     return classes.filter(Boolean).join(' ');
   }
