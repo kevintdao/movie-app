@@ -1,12 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import {
-  A11y,
-  Mousewheel,
-  Navigation,
-  Pagination,
-  SwiperOptions,
-  Autoplay,
-} from 'swiper';
+import { Component, Input } from '@angular/core';
+import { Navigation, Pagination, SwiperOptions, Autoplay } from 'swiper';
 
 @Component({
   selector: 'trending-swiper',
@@ -17,15 +10,11 @@ export class TrendingSwiperComponent {
   @Input() medias: any[] = [];
 
   config: SwiperOptions = {
-    modules: [Navigation, Pagination, A11y, Mousewheel, Autoplay],
     loop: true,
-    autoplay: {
-      delay: 1000,
-      disableOnInteraction: false,
-    },
     pagination: {
       clickable: true,
     },
     navigation: true,
+    modules: [Navigation, Pagination, Autoplay],
   };
 }

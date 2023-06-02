@@ -41,8 +41,4 @@ export class MediaSwiperComponent {
     },
     navigation: false,
   };
-
-  navigateToMedia(id: number) {
-    this.router.navigate([`/${this.mediaType}/${id}`]);
-  }
 }

@@ -9,7 +9,7 @@
   >
     <swiper-slide *ngFor="let item of items">
       <div
-        (click)="navigateToMedia(item.id)"
+        routerLink="/{{ mediaType }}/{{ item.id }}"
         class="pt-[160%] h-full w-full cursor-pointer hover:scale-[1.01]"
         [ngStyle]="{
           background:
