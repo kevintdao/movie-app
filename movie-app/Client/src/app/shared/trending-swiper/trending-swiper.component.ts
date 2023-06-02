@@ -15,6 +15,5 @@ export class TrendingSwiperComponent {
       clickable: true,
     },
     navigation: true,
-    modules: [Navigation, Pagination, Autoplay],
   };
 }

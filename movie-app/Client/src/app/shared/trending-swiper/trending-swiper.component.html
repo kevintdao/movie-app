@@ -1,8 +1,10 @@
 <!-- swiper with gradient bottom -->
 <swiper-container
   appSwiperDirective
-  [config]="config"
   class="relative swiper-container"
+  [config]="config"
+  autoplay-delay="5000"
+  autoplay-disable-on-interaction="false"
 >
   <swiper-slide *ngFor="let media of medias">
     <div
