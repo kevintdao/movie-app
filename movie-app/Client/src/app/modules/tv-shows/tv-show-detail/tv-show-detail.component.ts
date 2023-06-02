@@ -27,15 +27,16 @@ export class TvShowDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private tvShowsService: TvShowsService,
     private sharedService: SharedService
-  ) {}
+  ) {
+    this.route.paramMap.subscribe((params) => {
+      const id = Number(params.get('id'));
+      this.load(id);
+    });
+  }
 
-  ngOnInit(): void {
-    const routeParams = this.route.snapshot.params;
-    const id = Number(routeParams['id']);
+  ngOnInit(): void {}
 
-    // if no id, then no movie
-    if (!id) return;
-
+  private load(id: number): void {
     this.tvShow.load(this.tvShowsService.getTvShow(id));
 
     this.credit.load(this.sharedService.getCredit(id, 'tv'));

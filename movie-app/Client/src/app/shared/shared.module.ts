@@ -1,7 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BackButtonComponent } from './back-button/back-button.component';
 import { RouterModule } from '@angular/router';
+
+import { BackButtonComponent } from './back-button/back-button.component';
 import { ImageBackdropComponent } from './image-backdrop/image-backdrop.component';
 import { ImagePosterComponent } from './image-poster/image-poster.component';
 import { CastListComponent } from './cast-list/cast-list.component';
@@ -20,6 +21,7 @@ import { ReviewListComponent } from './review-list/review-list.component';
 import { FavoriteButtonComponent } from './favorite-button/favorite-button.component';
 import { MediaSwiperComponent } from './media-swiper/media-swiper.component';
 import { TrendingSwiperComponent } from './trending-swiper/trending-swiper.component';
+import { BackButtonDirective } from './back-button/back-button.directive';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { TrendingSwiperComponent } from './trending-swiper/trending-swiper.compo
     ReviewListComponent,
     FavoriteButtonComponent,
     TrendingSwiperComponent,
+    BackButtonDirective,
   ],
   imports: [CommonModule, RouterModule],
   exports: [

@@ -24,7 +24,7 @@ export class CastListComponent implements OnInit {
   config: SwiperOptions = {
     modules: [Navigation, Pagination, A11y, Mousewheel],
     grabCursor: true,
-    slidesPerView: 'auto',
+    slidesPerView: 5,
     spaceBetween: 10,
     centeredSlides: false,
     breakpoints: {
