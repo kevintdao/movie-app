@@ -5,6 +5,7 @@ namespace movie_app.Services.MovieService
 	{
 		List<Movie> GetMovies();
 		List<Movie> GetTrendingMovies();
+		MovieDetail GetMovie(int id);
 	}
 }
 

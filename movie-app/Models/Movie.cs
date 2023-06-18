@@ -2,7 +2,6 @@ namespace movie_app.Models
 {
 	public class Movie
 	{
-		public bool adult { get; set; }
 		public string backdrop_path { get; set; }
 		public int id { get; set; }
 		public string title { get; set; }
@@ -10,11 +9,9 @@ namespace movie_app.Models
 		public string original_title { get; set; }
 		public string overview { get; set; }
         public string poster_path { get; set; }
-        public string media_type { get; set; }
         public int[] genre_ids { get; set; }
         public double popularity { get; set; }
         public string release_date { get; set; }
-        public bool video { get; set; }
         public double vote_average { get; set; }
         public double vote_count { get; set; }
     }
@@ -25,6 +22,16 @@ namespace movie_app.Models
         public List<Movie> results { get; set; }
         public int total_page { get; set; }
         public int total_results { get; set; }
+    }
+
+    public class MovieDetail
+    {
+        public Movie movie { get; set; }
+        public Credit credit { get; set; }
+        public List<Image> backdrops { get; set; }
+        public List<Image> posters { get; set; }
+        public List<Video> videos { get; set; }
+        public List<Movie> recommendations { get; set; }
     }
 }
 
