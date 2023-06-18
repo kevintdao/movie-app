@@ -8,10 +8,8 @@ namespace movie_app.Services.MovieService
         private HttpClient client = new HttpClient();
         private string apiKey = $"api_key={Environment.GetEnvironmentVariable("API_KEY")}";
 
-
         public List<Movie> GetMovies()
         {
-
             List<Movie> movies = new List<Movie>();
             Uri endpoint = new Uri($"https://api.themoviedb.org/3/movie/popular?language=en-US&{apiKey}");
             var response = client.GetAsync(endpoint).Result;
