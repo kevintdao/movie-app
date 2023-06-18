@@ -22,8 +22,8 @@ namespace movie_app.Controllers
             return Ok(_tvShowService.GetTVShows());
         }
 
-        // GET: api/TVShow/Trending
-        [HttpGet("Trending")]
+        // GET: api/TVShow/trending
+        [HttpGet("trending")]
         public ActionResult<List<TVShow>> GetTrendingTVShow()
         {
             return Ok(_tvShowService.GetTrendingTVShows());
