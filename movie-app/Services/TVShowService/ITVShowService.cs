@@ -4,5 +4,6 @@
     {
         List<TVShow> GetTVShows();
         List<TVShow> GetTrendingTVShows();
+        TVShowDetail GetTVShow(int id);
     }
 }

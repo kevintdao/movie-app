@@ -31,9 +31,9 @@ namespace movie_app.Controllers
 
         // GET api/TVShow/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<List<TVShow>> Get(int id)
         {
-            return "value";
+            return Ok(_tvShowService.GetTVShow(id));
         }
     }
 }

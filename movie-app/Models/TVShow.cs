@@ -4,7 +4,6 @@ namespace movie_app.Models
 {
     public class TVShow
     {
-        public bool adult { get; set; }
         public string backdrop_path { get; set; }
         public int id { get; set; }
         public string name { get; set; }
@@ -14,7 +13,7 @@ namespace movie_app.Models
         public string poster_path { get; set; }
         public string media_type { get; set; }
         public int[] genre_ids { get; set; }
-        public int popularity { get; set; }
+        public double popularity { get; set; }
         public string first_air_date { get; set; }
         public bool video { get; set; }
         public double vote_average { get; set; }
@@ -22,7 +21,7 @@ namespace movie_app.Models
         public string[] origin_country { get; set; }
         public int? number_of_episodes { get; set; }
         public int? number_of_seasons { get; set; }
-        public int? episode_run_time { get; set; }
+        public int[]? episode_run_time { get; set; }
     }
 
     public class TVShowResponse
@@ -33,46 +32,13 @@ namespace movie_app.Models
         public int total_results { get; set; }
     }
 
-
-public static class TVShowEndpoints
-{
-	public static void MapTVShowEndpoints (this IEndpointRouteBuilder routes)
+    public class TVShowDetail
     {
-        var group = routes.MapGroup("/api/TVShow").WithTags(nameof(TVShow));
-
-        group.MapGet("/", () =>
-        {
-            return new [] { new TVShow() };
-        })
-        .WithName("GetAllTVShows")
-        .WithOpenApi();
-
-        group.MapGet("/{id}", (int id) =>
-        {
-            //return new TVShow { ID = id };
-        })
-        .WithName("GetTVShowById")
-        .WithOpenApi();
-
-        group.MapPut("/{id}", (int id, TVShow input) =>
-        {
-            return TypedResults.NoContent();
-        })
-        .WithName("UpdateTVShow")
-        .WithOpenApi();
-
-        group.MapPost("/", (TVShow model) =>
-        {
-            //return TypedResults.Created($"/api/TVShows/{model.ID}", model);
-        })
-        .WithName("CreateTVShow")
-        .WithOpenApi();
-
-        group.MapDelete("/{id}", (int id) =>
-        {
-            //return TypedResults.Ok(new TVShow { ID = id });
-        })
-        .WithName("DeleteTVShow")
-        .WithOpenApi();
+        public TVShow tv_show{ get; set; }
+        public Credit credit { get; set; }
+        public List<Image> backdrops { get; set; }
+        public List<Image> posters { get; set; }
+        public List<Video> videos { get; set; }
+        public List<TVShow> recommendations { get; set; }
     }
-}}
+}
