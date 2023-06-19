@@ -1,12 +1,14 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
-import { HomeModule } from './modules/home/home.module';
+import { HomeModule } from './routes/home/home.module';
+import { MoviesModule } from './routes/movies/movies.module';
+import { TvShowsModule } from './routes/tv-shows/tv-shows.module';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,9 +16,11 @@ import { HomeModule } from './modules/home/home.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule,
     HomeModule,
+    MoviesModule,
+    TvShowsModule,
     HttpClientModule,
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,9 @@
+<ng-container *ngIf="movies.isLoading; then loading; else list"></ng-container>
+
+<ng-template #loading>
+  <loading />
+</ng-template>
+
+<ng-template #list>
+  <media-list [items]="movies.data ?? []" title="Movies" />
+</ng-template>
