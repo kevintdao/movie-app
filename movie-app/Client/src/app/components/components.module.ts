@@ -17,6 +17,7 @@ import { FavoriteButtonComponent } from './button/favorite-button/favorite-butto
 import { BackButtonComponent } from './button/back-button/back-button.component';
 import { BackButtonDirective } from './button/back-button/back-button.directive';
 import { SectionLabelComponent } from './section-label/section-label.component';
+import { ReviewListComponent } from './list/review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SectionLabelComponent } from './section-label/section-label.component';
     BackButtonComponent,
     BackButtonDirective,
     SectionLabelComponent,
+    ReviewListComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -49,6 +51,7 @@ import { SectionLabelComponent } from './section-label/section-label.component';
     FavoriteButtonComponent,
     BackButtonComponent,
     SectionLabelComponent,
+    ReviewListComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

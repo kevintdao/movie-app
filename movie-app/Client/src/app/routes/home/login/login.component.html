@@ -1,3 +1,42 @@
 <div class="max-w-[1240px] p-4 mt-14 mx-auto">
-  <p>login works!</p>
+  <div>
+    <div class="text-4xl font-bold tracking-tighter">
+      Movie<span class="text-red-600">App</span>
+    </div>
+
+    <form
+      class="form"
+      autocomplete="off"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- username -->
+      <div>
+        <label for="Username">Username</label>
+        <input
+          class="rounded-md px-2 py-1 bg-stone-800 flex-1 border focus:outline-none"
+          type="text"
+          formControlName="username"
+        />
+      </div>
+      <!-- username -->
+
+      <!-- password -->
+      <div>
+        <label for="Username">Password</label>
+        <input
+          class="rounded-md px-2 py-1 bg-stone-800 flex-1 border focus:outline-none"
+          type="password"
+          formControlName="password"
+        />
+      </div>
+      <!-- password -->
+
+      <!-- login button -->
+      <div>
+        <button type="submit">Login</button>
+      </div>
+      <!-- login button -->
+    </form>
+  </div>
 </div>
