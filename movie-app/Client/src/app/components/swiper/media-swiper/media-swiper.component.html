@@ -1,0 +1,45 @@
+<div>
+  <h1 class="text-3xl font-bold mb-2">{{ title }}</h1>
+
+  <swiper-container
+    init="false"
+    appSwiperDirective
+    [config]="config"
+    class="w-full pb-12"
+  >
+    <swiper-slide *ngFor="let item of items">
+      <div
+        routerLink="/{{ mediaType }}/{{ item.id }}"
+        class="pt-[160%] h-full w-full cursor-pointer hover:scale-[1.01]"
+        [ngStyle]="{
+          background:
+          item.poster_path ? 'url(https://image.tmdb.org/t/p/original' + item.poster_path + ')' : 'darkgray',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }"
+      >
+        <div
+          class="absolute h-full w-full bottom-0 left-0 bg-gradient-to-t from-black to-transparent"
+        >
+          <div
+            class="absolute bottom-0 left-0 p-4 flex gap-2 w-full justify-between items-end"
+          >
+            <div>
+              <p class="font-bold tracking-tight mt-2">
+                {{ item.title || item.name }}
+              </p>
+              <p class="font-medium">
+                {{
+                  item.release_date?.slice(0, 4) ||
+                    item.first_air_date?.slice(0, 4)
+                }}
+              </p>
+            </div>
+
+            <rating [rating]="item.vote_average" />
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</div>

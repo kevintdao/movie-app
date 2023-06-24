@@ -1,0 +1,29 @@
+<div>
+  <h1 class="text-3xl font-bold mb-2">Cast</h1>
+
+  <swiper-container
+    init="false"
+    appSwiperDirective
+    [config]="config"
+    class="w-full pb-12 pr-12 md:pr-16"
+  >
+    <swiper-slide *ngFor="let cast of casts" class="h-72 sm:h-[19rem] md:h-80">
+      <div
+        class="h-full w-full"
+        [ngStyle]="{
+          background:
+            cast.profile_path ? 'url(https://image.tmdb.org/t/p/w500' + cast.profile_path + ')' : 'url(/assets/images/image-placeholder.svg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+        }"
+      >
+        <div
+          class="bg-black bg-opacity-60 w-full absolute bottom-0 h-max p-2 tracking-tighter"
+        >
+          <p class="font-medium">{{ cast.name }}</p>
+          <p class="text-sm text-gray-100">{{ cast.character }}</p>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+</div>

@@ -8,11 +8,13 @@ export interface Movie {
   poster_path: string;
   media_type: string;
   genre_ids: number[];
+  genres: Genre[];
   popularity: number;
   release_date: string;
   video: boolean;
   vote_average: number;
   vote_count: number;
+  runtime?: number;
 }
 
 export interface MovieDetail {

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-in-dialog.component.css'],
 })
 export class SignInDialogComponent {
-  open = false;
+  open = true;
 }
