@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using movie_app.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -11,7 +12,7 @@ namespace movie_app.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        public static User user = new User();
+        public static User user = new();
 
         [HttpPost("register")]
         public ActionResult<User> Register(UserDto request)
@@ -25,7 +26,7 @@ namespace movie_app.Controllers
         }
 
         [HttpPost("login")]
-        public ActionResult<User> Login(UserDto request)
+        public ActionResult<Login> Login(UserDto request)
         {
             if (user.email!= request.email)
             {
@@ -39,7 +40,11 @@ namespace movie_app.Controllers
 
             string token = CreateToken(user);
 
-            return Ok(token);
+            return Ok(new Login()
+            {
+                name = $"{user.first_name} {user.last_name}",
+                token = token
+            });
         }
 
         private string CreateToken(User user)

@@ -1,17 +1,18 @@
 <div class="max-w-[1240px] p-4 mt-14 mx-auto">
-  <div>
-    <div class="text-4xl font-bold tracking-tighter">
-      Movie<span class="text-red-600">App</span>
+  <div class="max-w-lg mx-auto space-y-4 p-4 my-2">
+    <div class="flex flex-col items-center">
+      <h2 class="uppercase">Login</h2>
+      <hr class="w-16 h-1 bg-red-600 border-0 rounded my-2" />
     </div>
 
     <form
-      class="form"
+      class="flex flex-col gap-2"
       autocomplete="off"
       [formGroup]="form"
       (ngSubmit)="onSubmit()"
     >
       <!-- username -->
-      <div>
+      <div class="flex flex-col gap-1">
         <label for="Username">Username</label>
         <input
           class="rounded-md px-2 py-1 bg-stone-800 flex-1 border focus:outline-none"
@@ -22,7 +23,7 @@
       <!-- username -->
 
       <!-- password -->
-      <div>
+      <div class="flex flex-col gap-1">
         <label for="Username">Password</label>
         <input
           class="rounded-md px-2 py-1 bg-stone-800 flex-1 border focus:outline-none"
@@ -32,11 +33,23 @@
       </div>
       <!-- password -->
 
-      <!-- login button -->
-      <div>
-        <button type="submit">Login</button>
+      <!-- button -->
+      <div class="flex justify-between">
+        <button
+          type="submit"
+          class="font-semibold uppercase text-sm bg-red-600 rounded px-4 py-2 hover:bg-red-700"
+        >
+          Login
+        </button>
+        <button
+          type="button"
+          routerLink="/register"
+          class="font-semibold uppercase text-sm bg-red-600 rounded px-4 py-2 hover:bg-red-700"
+        >
+          Register
+        </button>
       </div>
-      <!-- login button -->
+      <!-- button -->
     </form>
   </div>
 </div>
