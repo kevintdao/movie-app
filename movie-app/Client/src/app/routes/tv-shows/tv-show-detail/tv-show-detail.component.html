@@ -1,5 +1,73 @@
-<div class="max-w-[1240px] p-4 mt-14 mx-auto">
-  <div
-    class="flex flex-col md:flex-row bg-transparent gap-4 mt-[-20rem] xl:mt-[-25rem]"
-  ></div>
-</div>
+<ng-container
+  *ngIf="tvShow.isLoading; then loading; else detail"
+></ng-container>
+
+<ng-template #loading>
+  <loading />
+</ng-template>
+
+<ng-template #detail>
+  <image-backdrop [backdropPath]="tvShow.data?.tv_show?.backdrop_path ?? ''" />
+  <div class="max-w-[1240px] p-4 mt-14 mx-auto">
+    <div
+      class="flex flex-col md:flex-row bg-transparent gap-4 mt-[-20rem] xl:mt-[-25rem]"
+    >
+      <!-- poster image -->
+      <div class="w-[50%] md:w-[30%] mx-auto">
+        <image-poster [posterPath]="tvShow.data?.tv_show?.poster_path ?? ''" />
+      </div>
+      <!-- poster image -->
+
+      <!-- show details -->
+      <div class="text-white w-full md:w-[70%] space-y-4">
+        <h1 class="font-bold mb-2 text-4xl lg:text-6xl">
+          {{ tvShow.data?.tv_show?.name }}
+        </h1>
+        <h2 class="text-3xl lg:text-5xl">
+          {{ tvShow.data?.tv_show?.first_air_date?.slice(0, 4) }}
+        </h2>
+
+        <!-- genres -->
+        <div>
+          <genre-list [genres]="tvShow.data?.tv_show?.genres ?? []" />
+        </div>
+        <!-- genres -->
+
+        <!-- rating and runtime -->
+        <div class="flex gap-4 items-center">
+          <rating [rating]="tvShow.data?.tv_show?.vote_average ?? 0" />
+        </div>
+        <!-- rating and runtime -->
+
+        <!-- description -->
+        <div class="tracking-normal">
+          <p>{{ tvShow.data?.tv_show?.overview }}</p>
+        </div>
+        <!-- description -->
+
+        <!-- button button -->
+        <div class="flex gap-4">
+          <back-button />
+          <favorite-button />
+        </div>
+        <!-- button button -->
+      </div>
+      <!-- show details -->
+    </div>
+
+    <div class="flex flex-col gap-10 mt-4">
+      <!-- cast swiper -->
+      <cast-swiper
+        [casts]="tvShow.data?.credit?.cast || (tvShow.data?.credit?.crew ?? [])"
+      />
+      <!-- cast swiper -->
+
+      <!-- recommendations -->
+      <media-swiper
+        [items]="tvShow.data?.recommendations ?? []"
+        mediaType="tv-shows"
+      />
+      <!-- recommendations -->
+    </div>
+  </div>
+</ng-template>

@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { MediaListComponent } from './media-list/media-list.component';
 import { LoadingComponent } from './loading/loading.component';
 import { RatingComponent } from './rating/rating.component';
-import { MediaDetailComponent } from './media-detail/media-detail.component';
 import { ImagePosterComponent } from './image/image-poster/image-poster.component';
 import { ImageBackdropComponent } from './image/image-backdrop/image-backdrop.component';
 import { SwiperDirective } from './swiper.directive';
@@ -25,7 +24,6 @@ import { AlertComponent } from './alert/alert.component';
     MediaListComponent,
     LoadingComponent,
     RatingComponent,
-    MediaDetailComponent,
     ImagePosterComponent,
     ImageBackdropComponent,
     SwiperDirective,

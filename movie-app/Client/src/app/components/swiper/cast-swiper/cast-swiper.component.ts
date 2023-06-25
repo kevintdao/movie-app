@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Cast } from 'src/app/services/types';
+import { Cast, Crew } from 'src/app/services/types';
 import {
   A11y,
   Mousewheel,
@@ -14,7 +14,7 @@ import {
   styleUrls: ['./cast-swiper.component.css'],
 })
 export class CastSwiperComponent implements OnInit {
-  @Input() casts: Cast[] = [];
+  @Input() casts: any[] = [];
 
   config: SwiperOptions = {
     modules: [Navigation, Pagination, A11y, Mousewheel],

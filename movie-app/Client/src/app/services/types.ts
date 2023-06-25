@@ -43,13 +43,14 @@ export interface TvShow {
   vote_average: number;
   vote_count: number;
   origin_country: string[];
+  genres: Genre[];
   number_of_episodes?: number;
   number_of_seasons?: number;
   episode_run_time?: number;
 }
 
 export interface TvShowDetail {
-  movie: TvShow;
+  tv_show: TvShow;
   credit: Credit;
   backdrops: Image[];
   posters: Image[];
