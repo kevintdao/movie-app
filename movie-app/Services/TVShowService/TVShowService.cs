@@ -7,7 +7,7 @@ namespace movie_app.Services.TVShowService
         private HttpClient client = new HttpClient();
         private string apiKey = $"api_key={Environment.GetEnvironmentVariable("API_KEY")}";
 
-        public List<TVShow> GetTVShows()
+        public List<TVShow> GetTrendingTVShows()
         {
             List<TVShow> shows = new List<TVShow>();
             Uri endpoint = new Uri($"https://api.themoviedb.org/3/trending/tv/day?language=en-US&{apiKey}");
@@ -19,10 +19,10 @@ namespace movie_app.Services.TVShowService
             return shows;
         }
      
-        public List<TVShow> GetTrendingTVShows()
+        public List<TVShow> GetTopRatedTVShows()
         {
             List<TVShow> shows = new List<TVShow>();
-            Uri endpoint = new Uri($"https://api.themoviedb.org/3/trending/tv/day?{apiKey}");
+            Uri endpoint = new Uri($"https://api.themoviedb.org/3/tv/top_rated?language=en-US&{apiKey}");
             var response = client.GetAsync(endpoint).Result;
             var result = response.Content.ReadAsStringAsync().Result;
 

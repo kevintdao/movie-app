@@ -11,8 +11,12 @@ export class TvShowsService {
 
   constructor(private HttpClient: HttpClient) {}
 
-  getTvShows() {
-    return this.HttpClient.get<TvShow[]>(`${this.serverUrl}/TVShow`);
+  getTrendingTvShows() {
+    return this.HttpClient.get<TvShow[]>(`${this.serverUrl}/TVShow/trending`);
+  }
+
+  getTopRatedTvShows() {
+    return this.HttpClient.get<TvShow[]>(`${this.serverUrl}/TVShow/top_rated`);
   }
 
   getTvShow(id: number) {

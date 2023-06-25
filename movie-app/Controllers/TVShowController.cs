@@ -15,18 +15,18 @@ namespace movie_app.Controllers
             this._tvShowService = tvShowService;
         }
 
-        // GET: api/TVShow
-        [HttpGet]
-        public ActionResult<List<TVShow>> GetShows()
-        {
-            return Ok(_tvShowService.GetTVShows());
-        }
-
         // GET: api/TVShow/trending
         [HttpGet("trending")]
-        public ActionResult<List<TVShow>> GetTrendingTVShow()
+        public ActionResult<List<TVShow>> GetTrendingTVShows()
         {
             return Ok(_tvShowService.GetTrendingTVShows());
+        }
+
+        // GET: api/TVShow/top_rated
+        [HttpGet("top_rated")]
+        public ActionResult<List<TVShow>> GetTopRatedTVShows()
+        {
+            return Ok(_tvShowService.GetTopRatedTVShows());
         }
 
         // GET api/TVShow/5

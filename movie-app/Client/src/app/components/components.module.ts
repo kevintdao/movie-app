@@ -18,6 +18,7 @@ import { BackButtonDirective } from './button/back-button/back-button.directive'
 import { SectionLabelComponent } from './section-label/section-label.component';
 import { ReviewListComponent } from './list/review-list/review-list.component';
 import { AlertComponent } from './alert/alert.component';
+import { TrendingSwiperComponent } from './swiper/trending-swiper/trending-swiper.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AlertComponent } from './alert/alert.component';
     SectionLabelComponent,
     ReviewListComponent,
     AlertComponent,
+    TrendingSwiperComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -53,6 +55,7 @@ import { AlertComponent } from './alert/alert.component';
     SectionLabelComponent,
     ReviewListComponent,
     AlertComponent,
+    TrendingSwiperComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

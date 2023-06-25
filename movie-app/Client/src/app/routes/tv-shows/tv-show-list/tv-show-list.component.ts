@@ -14,6 +14,6 @@ export class TvShowListComponent {
   constructor(private tvShowService: TvShowsService) {}
 
   ngOnInit(): void {
-    this.tvShows.load(this.tvShowService.getTvShows());
+    this.tvShows.load(this.tvShowService.getTrendingTvShows());
   }
 }

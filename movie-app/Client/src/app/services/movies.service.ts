@@ -11,8 +11,12 @@ export class MoviesService {
 
   constructor(private HttpClient: HttpClient) {}
 
-  getMovies() {
-    return this.HttpClient.get<Movie[]>(`${this.serverUrl}/Movie`);
+  getTrendingMovies() {
+    return this.HttpClient.get<Movie[]>(`${this.serverUrl}/Movie/trending`);
+  }
+
+  getTopRatedMovies() {
+    return this.HttpClient.get<Movie[]>(`${this.serverUrl}/Movie/top_rated`);
   }
 
   getMovie(id: number) {

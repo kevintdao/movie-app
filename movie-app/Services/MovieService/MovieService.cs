@@ -9,7 +9,7 @@ namespace movie_app.Services.MovieService
         private HttpClient client = new HttpClient();
         private string apiKey = $"api_key={Environment.GetEnvironmentVariable("API_KEY")}";
 
-        public List<Movie> GetMovies()
+        public List<Movie> GetTrendingMovies()
         {
             List<Movie> movies = new List<Movie>();
             Uri endpoint = new Uri($"https://api.themoviedb.org/3/trending/movie/day?language=en-US&{apiKey}");
@@ -21,10 +21,10 @@ namespace movie_app.Services.MovieService
             return movies;
         }
 
-        public List<Movie> GetTrendingMovies()
+        public List<Movie> GetTopRatedMovies()
         {
             List<Movie> movies = new List<Movie>();
-            Uri endpoint = new Uri($"https://api.themoviedb.org/3/trending/movie/day?{apiKey}");
+            Uri endpoint = new Uri($"https://api.themoviedb.org/3/movie/top_rated?language=en-US&{apiKey}");
             var response = client.GetAsync(endpoint).Result;
             var result = response.Content.ReadAsStringAsync().Result;
 

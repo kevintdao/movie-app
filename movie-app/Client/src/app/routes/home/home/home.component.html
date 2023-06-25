@@ -1,5 +1,55 @@
-<div class="max-w-[1240px] p-4 mt-14 mx-auto">
-  <div
-    class="flex flex-col md:flex-row bg-transparent gap-4 mt-[-20rem] xl:mt-[-25rem]"
-  ></div>
-</div>
+<ng-container
+  *ngIf="
+    trendingMovies.isLoading ||
+      trendingTvShows.isLoading ||
+      topRatedMovies.isLoading ||
+      topRatedTvShows.isLoading;
+    then loading;
+    else list
+  "
+></ng-container>
+
+<ng-template #loading>
+  <loading />
+</ng-template>
+
+<ng-template #list>
+  <!-- trending movie swiper -->
+  <trending-swiper [medias]="trendingMovies.data ?? []" />
+  <!-- trending movie swiper -->
+  <div class="max-w-[1240px] p-4 mx-auto">
+    <div class="space-y-6">
+      <!-- trending movies -->
+      <media-swiper
+        title="Popular Movies"
+        [items]="trendingMovies.data ?? []"
+        mediaType="movies"
+      />
+      <!-- trending movies -->
+
+      <!-- trending tv shows -->
+      <media-swiper
+        title="Popular TV Shows"
+        [items]="trendingTvShows.data ?? []"
+        mediaType="tv-shows"
+      />
+      <!-- trending tv shows -->
+
+      <!-- top rated movies -->
+      <media-swiper
+        title="Top Rated Movies"
+        [items]="topRatedMovies.data ?? []"
+        mediaType="movies"
+      />
+      <!-- top rated movies -->
+
+      <!-- top rated tv shows -->
+      <media-swiper
+        title="Top Rated TV Shows"
+        [items]="topRatedTvShows.data ?? []"
+        mediaType="tv-shows"
+      />
+      <!-- top rated tv shows -->
+    </div>
+  </div>
+</ng-template>

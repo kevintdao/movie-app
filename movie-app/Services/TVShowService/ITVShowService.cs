@@ -2,7 +2,7 @@
 {
     public interface ITVShowService
     {
-        List<TVShow> GetTVShows();
+        List<TVShow> GetTopRatedTVShows();
         List<TVShow> GetTrendingTVShows();
         TVShowDetail GetTVShow(int id);
     }
