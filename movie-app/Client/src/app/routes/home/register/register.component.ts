@@ -16,8 +16,8 @@ export class RegisterComponent {
 
   form = this.formBuilder.group({
     username: ['', [Validators.required]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-    confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
+    password: ['', [Validators.required]],
+    confirmPassword: ['', [Validators.required]],
   });
 
   constructor(
@@ -34,10 +34,21 @@ export class RegisterComponent {
       return;
     }
 
-    this.authService.register(
-      this.form.value.username as string,
-      this.form.value.password as string,
-      this.form.value.confirmPassword as string
-    );
+    this.authService
+      .register(
+        this.form.value.username as string,
+        this.form.value.password as string,
+        this.form.value.confirmPassword as string
+      )
+      .pipe(
+        catchError((err: any) => {
+          this.message = err.error;
+          this.type = 'error';
+          return [];
+        })
+      )
+      .subscribe((response) => {
+        this.router.navigate(['/login']);
+      });
   }
 }
