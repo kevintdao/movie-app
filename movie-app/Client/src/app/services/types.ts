@@ -44,9 +44,9 @@ export interface TvShow {
   vote_count: number;
   origin_country: string[];
   genres: Genre[];
-  number_of_episodes?: number;
-  number_of_seasons?: number;
-  episode_run_time?: number;
+  number_of_episodes: number;
+  number_of_seasons: number;
+  episode_run_time: number[];
 }
 
 export interface TvShowDetail {

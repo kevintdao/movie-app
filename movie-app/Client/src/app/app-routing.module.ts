@@ -29,6 +29,11 @@ const routes: Routes = [
       import('./routes/tv-shows/tv-shows.module').then((m) => m.TvShowsModule),
   },
   {
+    path: 'users',
+    loadChildren: () =>
+      import('./routes/users/users.module').then((m) => m.UsersModule),
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   },
