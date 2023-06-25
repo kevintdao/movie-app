@@ -18,6 +18,7 @@ import { BackButtonComponent } from './button/back-button/back-button.component'
 import { BackButtonDirective } from './button/back-button/back-button.directive';
 import { SectionLabelComponent } from './section-label/section-label.component';
 import { ReviewListComponent } from './list/review-list/review-list.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ReviewListComponent } from './list/review-list/review-list.component';
     BackButtonDirective,
     SectionLabelComponent,
     ReviewListComponent,
+    AlertComponent,
   ],
   imports: [CommonModule, RouterModule],
   exports: [
@@ -52,6 +54,7 @@ import { ReviewListComponent } from './list/review-list/review-list.component';
     BackButtonComponent,
     SectionLabelComponent,
     ReviewListComponent,
+    AlertComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

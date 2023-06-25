@@ -19,10 +19,51 @@
       </ul>
     </div>
 
-    <a
-      routerLink="/login"
-      class="font-semibold uppercase text-sm bg-red-600 rounded px-4 py-2 hover:bg-red-700"
-      >Sign In</a
-    >
+    <ng-container
+      *ngIf="authService.isLoggedIn$ | async; then loggedIn; else notLoggedIn"
+    ></ng-container>
+
+    <!-- not logged in -->
+    <ng-template #notLoggedIn>
+      <a
+        routerLink="/login"
+        class="font-semibold uppercase text-sm bg-red-600 rounded px-4 py-2 hover:bg-red-700"
+        >Sign In</a
+      >
+    </ng-template>
+    <!-- not logged in -->
+
+    <!-- logged in -->
+    <ng-template #loggedIn>
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
+          <div
+            class="relative w-8 h-8 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600"
+          >
+            <svg
+              class="absolute w-10 h-10 text-gray-400 -left-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+          <span>{{ name }}</span>
+        </div>
+        <button
+          (click)="authService.logout()"
+          class="font-semibold uppercase text-sm bg-red-600 rounded px-4 py-2 hover:bg-red-700"
+        >
+          Sign Out
+        </button>
+      </div>
+    </ng-template>
+
+    <!-- logged in -->
   </nav>
 </header>

@@ -5,6 +5,10 @@
       <hr class="w-16 h-1 bg-red-600 border-0 rounded my-2" />
     </div>
 
+    <div>
+      <alert [message]="message" [type]="type" *ngIf="message"></alert>
+    </div>
+
     <form
       class="flex flex-col gap-2"
       autocomplete="off"

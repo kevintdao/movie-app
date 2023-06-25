@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   shadow = false;
+  name = 'John Doe';
 
   links = [
     { path: '/movies', label: 'Movies' },
     { path: '/tv-shows', label: 'TV Shows' },
   ];
+
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
     window.addEventListener('scroll', this.scroll, true);

@@ -114,3 +114,11 @@ export interface Credit {
   cast: Cast[];
   crew: Crew[];
 }
+
+export interface User {
+  email: string;
+  name: string;
+  token: string;
+}
+
+export type AlertType = 'success' | 'error' | 'warning' | 'info';

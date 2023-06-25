@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { catchError, Observable } from 'rxjs';
+import { AlertType } from 'src/app/services/types';
 
 @Component({
   selector: 'app-login',
@@ -8,6 +11,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  message = '';
+  type?: AlertType = undefined;
+
   form = this.formBuilder.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
@@ -15,23 +21,32 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   onSubmit() {
+    this.message = '';
+    this.type = undefined;
+
     if (this.form.invalid) {
       return;
     }
-
-    console.log(this.form.value);
 
     this.authService
       .login(
         this.form.value.username as string,
         this.form.value.password as string
       )
+      .pipe(
+        catchError((err: any) => {
+          this.message = err.error;
+          this.type = 'error';
+          return [];
+        })
+      )
       .subscribe((response) => {
-        console.log(response);
+        this.router.navigate(['/']);
       });
   }
 }

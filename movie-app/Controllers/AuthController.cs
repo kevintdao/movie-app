@@ -19,6 +19,8 @@ namespace movie_app.Controllers
         {
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.password);
 
+            user.first_name = request.first_name;
+            user.last_name = request.last_name;
             user.email = request.email;
             user.password_hash = passwordHash;
 
