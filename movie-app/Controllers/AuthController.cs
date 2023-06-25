@@ -19,9 +19,7 @@ namespace movie_app.Controllers
         {
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(request.password);
 
-            user.first_name = request.first_name;
-            user.last_name = request.last_name;
-            user.email = request.email;
+            user.username = request.username;
             user.password_hash = passwordHash;
 
             return Ok(user);
@@ -30,21 +28,21 @@ namespace movie_app.Controllers
         [HttpPost("login")]
         public ActionResult<Login> Login(UserDto request)
         {
-            if (user.email!= request.email)
+            if (user.username != request.username)
             {
-                return BadRequest("Invalid email/password");
+                return BadRequest("Invalid username/password");
             }
 
             if (!BCrypt.Net.BCrypt.Verify(request.password, user.password_hash))
             {
-                return BadRequest("Invalid email/password");
+                return BadRequest("Invalid username/password");
             }
 
             string token = CreateToken(user);
 
             return Ok(new Login()
             {
-                name = $"{user.first_name} {user.last_name}",
+                name = user.username,
                 token = token
             });
         }
@@ -53,7 +51,7 @@ namespace movie_app.Controllers
         {
             List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, user.email)
+                new Claim(ClaimTypes.Name, user.username)
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET_TOKEN")));

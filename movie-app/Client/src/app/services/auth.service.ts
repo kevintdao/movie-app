@@ -24,7 +24,7 @@ export class AuthService {
 
   login(username: string, password: string) {
     return this.HttpClient.post(`${this.serverUrl}/Auth/login`, {
-      email: username,
+      username,
       password,
     }).pipe(
       tap((response: any) => {
@@ -41,7 +41,11 @@ export class AuthService {
     this._user$.next(null);
   }
 
-  register() {
-    return this.HttpClient.post(`${this.serverUrl}/Auth/register`, {});
+  register(username: string, password: string, confirmPassword: string) {
+    return this.HttpClient.post(`${this.serverUrl}/Auth/register`, {
+      username,
+      password,
+      confirmPassword,
+    });
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { catchError, Observable } from 'rxjs';
+import { catchError } from 'rxjs';
 import { AlertType } from 'src/app/services/types';
 
 @Component({

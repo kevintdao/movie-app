@@ -1,3 +1,72 @@
 <div class="max-w-[1240px] p-4 mt-14 mx-auto">
-  <p>register works!</p>
+  <div class="max-w-lg mx-auto space-y-4 p-4 my-2">
+    <div class="flex flex-col items-center">
+      <h2 class="uppercase">Sign Up</h2>
+      <hr class="w-16 h-1 bg-red-600 border-0 rounded my-2" />
+    </div>
+
+    <div>
+      <alert [message]="message" [type]="type" *ngIf="message"></alert>
+    </div>
+
+    <form
+      class="flex flex-col gap-2"
+      autocomplete="off"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- username -->
+      <div class="flex flex-col gap-1">
+        <label for="username">Username</label>
+        <input
+          class="rounded-md px-2 py-1 bg-stone-800 flex-1 border focus:outline-none"
+          type="text"
+          name="username"
+          formControlName="username"
+        />
+      </div>
+      <!-- username -->
+
+      <!-- password -->
+      <div class="flex flex-col gap-1">
+        <label for="password">Password</label>
+        <input
+          class="rounded-md px-2 py-1 bg-stone-800 flex-1 border focus:outline-none"
+          type="password"
+          name="password"
+          formControlName="password"
+        />
+      </div>
+      <!-- password -->
+
+      <!-- confirm password -->
+      <div class="flex flex-col gap-1">
+        <label for="confirm-password">Confirm Password</label>
+        <input
+          class="rounded-md px-2 py-1 bg-stone-800 flex-1 border focus:outline-none"
+          type="password"
+          name="confirm-password"
+          formControlName="confirmPassword"
+        />
+      </div>
+      <!-- confirm password -->
+
+      <!-- button -->
+      <div class="flex justify-between items-center">
+        <button
+          type="submit"
+          class="font-semibold uppercase text-sm bg-red-600 rounded px-4 py-2 hover:bg-red-700"
+        >
+          Submit
+        </button>
+        <a
+          routerLink="/login"
+          class="font-semibold uppercase text-sm hover:text-red-600"
+        >
+          Already have an account?
+        </a>
+      </div>
+      <!-- button -->
+    </form>
+  </div>
 </div>
