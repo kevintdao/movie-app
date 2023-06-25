@@ -1,4 +1,4 @@
-<app-header />
+<app-header *ngIf="authService.isLoggedIn$ | async" />
 <main class="mb-2 min-h-[calc(100vh-11rem)]">
   <router-outlet />
 </main>

@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { register } from 'swiper/element/bundle';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { register } from 'swiper/element/bundle';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'client';
+
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {}
 
