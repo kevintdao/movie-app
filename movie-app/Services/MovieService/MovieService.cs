@@ -12,7 +12,7 @@ namespace movie_app.Services.MovieService
         public List<Movie> GetMovies()
         {
             List<Movie> movies = new List<Movie>();
-            Uri endpoint = new Uri($"https://api.themoviedb.org/3/movie/popular?language=en-US&{apiKey}");
+            Uri endpoint = new Uri($"https://api.themoviedb.org/3/trending/movie/day?language=en-US&{apiKey}");
             var response = client.GetAsync(endpoint).Result;
             var result = response.Content.ReadAsStringAsync().Result;
 

@@ -10,7 +10,7 @@ namespace movie_app.Services.TVShowService
         public List<TVShow> GetTVShows()
         {
             List<TVShow> shows = new List<TVShow>();
-            Uri endpoint = new Uri($"https://api.themoviedb.org/3/tv/popular?language=en-US&{apiKey}");
+            Uri endpoint = new Uri($"https://api.themoviedb.org/3/trending/tv/day?language=en-US&{apiKey}");
             var response = client.GetAsync(endpoint).Result;
             var result = response.Content.ReadAsStringAsync().Result;
 

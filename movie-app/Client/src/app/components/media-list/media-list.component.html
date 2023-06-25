@@ -25,10 +25,10 @@
           >
             <div>
               <p class="font-bold tracking-tight mt-2">
-                {{ item.title }}
+                {{ item.title || item.name }}
               </p>
               <p class="font-medium">
-                {{ item.release_date.slice(0, 4) }}
+                {{ (item.release_date || item.first_air_date).slice(0, 4) }}
               </p>
             </div>
 

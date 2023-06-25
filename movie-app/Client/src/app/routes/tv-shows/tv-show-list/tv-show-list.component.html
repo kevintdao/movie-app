@@ -1,5 +1,9 @@
-<div class="max-w-[1240px] p-4 mt-14 mx-auto">
-  <div
-    class="flex flex-col md:flex-row bg-transparent gap-4 mt-[-20rem] xl:mt-[-25rem]"
-  ></div>
-</div>
+<ng-container *ngIf="tvShows.isLoading; then loading; else list"></ng-container>
+
+<ng-template #loading>
+  <loading />
+</ng-template>
+
+<ng-template #list>
+  <media-list [items]="tvShows.data ?? []" title="TV Shows" />
+</ng-template>
